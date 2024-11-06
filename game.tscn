@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvdip1dq8fq1c"]
+
+[ext_resource type="PackedScene" uid="uid://ct0pm8mailpw5" path="res://Nodes/player.tscn" id="1_57ppt"]
+[ext_resource type="PackedScene" uid="uid://cikrdb857r4yb" path="res://Nodes/gun.tscn" id="2_86ogk"]
+[ext_resource type="PackedScene" uid="uid://dxbyhq8rwhhq5" path="res://Nodes/station.tscn" id="3_lnygh"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cduvv"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qhcju"]
+normal = Vector2(1, 0)
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="Player" parent="." node_paths=PackedStringArray("_gun") instance=ExtResource("1_57ppt")]
+scale = Vector2(1.00391, 1.04514)
+_gun = NodePath("Gun")
+
+[node name="Gun" parent="Player" instance=ExtResource("2_86ogk")]
+position = Vector2(4, 4)
+
+[node name="WorldBoundary" type="Node" parent="."]
+
+[node name="Floor" type="StaticBody2D" parent="WorldBoundary"]
+position = Vector2(0, 38)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary/Floor"]
+position = Vector2(0, 42)
+shape = SubResource("WorldBoundaryShape2D_cduvv")
+
+[node name="RightWall" type="StaticBody2D" parent="WorldBoundary"]
+rotation = 3.13794
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary/RightWall"]
+position = Vector2(-144, 0)
+shape = SubResource("WorldBoundaryShape2D_qhcju")
+
+[node name="LefWall" type="StaticBody2D" parent="WorldBoundary"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary/LefWall"]
+position = Vector2(-144, 0)
+shape = SubResource("WorldBoundaryShape2D_qhcju")
+
+[node name="Station" parent="." instance=ExtResource("3_lnygh")]
+position = Vector2(58, 63)
