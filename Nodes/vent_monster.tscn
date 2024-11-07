@@ -1,26 +1,244 @@
-[gd_scene load_steps=9 format=3 uid="uid://ld67y88nc70g"]
+[gd_scene load_steps=21 format=3 uid="uid://ld67y88nc70g"]
 
 [ext_resource type="Script" path="res://_Scripts/Unit/VentMonster.gd" id="1_1mjqb"]
-[ext_resource type="Texture2D" uid="uid://dhc5k03knfi77" path="res://icon.svg" id="1_r8877"]
+[ext_resource type="Texture2D" uid="uid://co3uimvwun36g" path="res://Sprites/Vent-Sheet.png" id="2_3wrve"]
 [ext_resource type="Script" path="res://_Scripts/StateMachine/StateMachine.gd" id="3_sdqhq"]
 [ext_resource type="Script" path="res://_Scripts/StateMachine/Monster/Knocking.gd" id="4_oybpk"]
 [ext_resource type="Script" path="res://_Scripts/StateMachine/Monster/Hiding.gd" id="4_qfr8c"]
 [ext_resource type="Script" path="res://_Scripts/StateMachine/Monster/Entering.gd" id="5_ykewy"]
 [ext_resource type="Script" path="res://_Scripts/StateMachine/Monster/Entered.gd" id="6_pja5b"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_t61ej"]
+atlas = ExtResource("2_3wrve")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_144gm"]
+atlas = ExtResource("2_3wrve")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1eraf"]
+atlas = ExtResource("2_3wrve")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lr4xd"]
+atlas = ExtResource("2_3wrve")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4sfe"]
+atlas = ExtResource("2_3wrve")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jxm5"]
+atlas = ExtResource("2_3wrve")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1vdpu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t61ej")
+}],
+"loop": true,
+"name": &"Entering",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_144gm")
+}],
+"loop": true,
+"name": &"Hiding",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1eraf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lr4xd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4sfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jxm5")
+}],
+"loop": true,
+"name": &"Knocking",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cpj0y"]
-size = Vector2(24, 24)
+size = Vector2(28, 3.5)
+
+[sub_resource type="Animation" id="Animation_6w1u8"]
+resource_name = "Hiding"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Hiding"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -14.75)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(28, 3.5)]
+}
+
+[sub_resource type="Animation" id="Animation_e6f2d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Hiding"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -14.5)]
+}
+
+[sub_resource type="Animation" id="Animation_0b3a7"]
+resource_name = "Knocking"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Knocking"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, -14)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(29, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_ip1w8"]
+resource_name = "Entering"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Entering"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-4.5, -1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:shape:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(23, 31)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eju1s"]
+_data = {
+"Entering": SubResource("Animation_ip1w8"),
+"Hiding": SubResource("Animation_6w1u8"),
+"Knocking": SubResource("Animation_0b3a7"),
+"RESET": SubResource("Animation_e6f2d")
+}
 
 [node name="VentMonster" type="Area2D"]
 collision_layer = 8
 collision_mask = 16
 script = ExtResource("1_1mjqb")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_r8877")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_1vdpu")
+animation = &"Hiding"
+autoplay = "Hiding"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -14.5)
 shape = SubResource("RectangleShape2D_cpj0y")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("_initialState")]
@@ -49,6 +267,11 @@ one_shot = true
 
 [node name="EnteringTimer" type="Timer" parent="Timer"]
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_eju1s")
+}
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="timeout" from="Timer/HidingTimer" to="." method="_on_hiding_timer_timeout"]

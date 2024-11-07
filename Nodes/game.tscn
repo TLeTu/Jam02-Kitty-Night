@@ -86,7 +86,6 @@ texture = SubResource("GradientTexture2D_lytcl")
 
 [node name="FlashLight" parent="." node_paths=PackedStringArray("_player", "_objectHolder") instance=ExtResource("5_y4ngv")]
 position = Vector2(7, 4)
-scale = Vector2(1, 1)
 _player = NodePath("../Player")
 _objectHolder = NodePath("../Objects")
 

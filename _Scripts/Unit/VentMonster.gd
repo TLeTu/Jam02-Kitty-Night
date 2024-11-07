@@ -4,6 +4,7 @@ class_name VentMonster
 @export var _hidingTimer: Timer
 @export var _knockingTimer: Timer
 @export var _enteringTimer: Timer
+@onready var _animationPlayer = $AnimationPlayer
 
 var currentState: State
 
@@ -29,17 +30,21 @@ func _on_area_entered(area: Area2D) -> void:
 	if currentState.get_name() == "Knocking":
 		print("Pushed monster back")
 		currentState._transitioned.emit(currentState, "Hiding")
+		_animationPlayer.play("Hiding")
 		_knockingTimer.stop()
 	if currentState.get_name() == "Entering":
 		print("Pushed monster back")
 		currentState._transitioned.emit(currentState, "Knocking")
+		_animationPlayer.play("Knocking")
 		_enteringTimer.stop()
 
 func _on_hiding_timer_timeout() -> void:
 	currentState._transitioned.emit(currentState, "Knocking")
+	_animationPlayer.play("Knocking")
 
 func _on_knocking_timer_timeout() -> void:
 	currentState._transitioned.emit(currentState, "Entering")
+	_animationPlayer.play("Entering")
 
 func _on_entering_timer_timeout() -> void:
 	currentState._transitioned.emit(currentState, "Entered")
