@@ -8,7 +8,6 @@ func _process(delta: float) -> void:
 		_gun._add_bullet(1)
 
 func _on_body_entered(body) -> void:
-	print("player entered")
 	_playerIn = true
 	_gun = body.get_node("Gun")
 

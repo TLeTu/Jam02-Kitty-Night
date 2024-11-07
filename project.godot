@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Kitty's Night"
-run/main_scene="res://game.tscn"
+run/main_scene="res://Nodes/game.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -48,6 +48,8 @@ Reload={
 2d_physics/layer_1="player"
 2d_physics/layer_2="object"
 2d_physics/layer_3="terrain"
+2d_physics/layer_4="monster"
+2d_physics/layer_5="bullet"
 
 [rendering]
 

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://fe4nciqkjdv1"]
+
+[ext_resource type="Texture2D" uid="uid://cej8bdhuqxk7i" path="res://Sprites/Flashlight.png" id="1_7nj3y"]
+[ext_resource type="Texture2D" uid="uid://c1gp6dm13dold" path="res://Sprites/Light.png" id="2_qu6ls"]
+
+[node name="FlashLight" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_7nj3y")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(52.25, 0)
+scale = Vector2(1.55469, 1)
+texture = ExtResource("2_qu6ls")

@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=3 uid="uid://bvdip1dq8fq1c"]
+
+[ext_resource type="PackedScene" uid="uid://ct0pm8mailpw5" path="res://Nodes/player.tscn" id="1_ax0se"]
+[ext_resource type="PackedScene" uid="uid://cikrdb857r4yb" path="res://Nodes/gun.tscn" id="2_lo0um"]
+[ext_resource type="PackedScene" uid="uid://dxbyhq8rwhhq5" path="res://Nodes/station.tscn" id="3_cwfit"]
+[ext_resource type="PackedScene" uid="uid://ld67y88nc70g" path="res://Nodes/vent_monster.tscn" id="4_65h8a"]
+[ext_resource type="PackedScene" uid="uid://fe4nciqkjdv1" path="res://Nodes/flash_light.tscn" id="5_y4ngv"]
+[ext_resource type="Texture2D" uid="uid://vgn16yrbwnii" path="res://Sprites/black.png" id="6_0txx3"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cduvv"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_qhcju"]
+normal = Vector2(1, 0)
+
+[sub_resource type="Gradient" id="Gradient_i3f8r"]
+offsets = PackedFloat32Array(0.25974, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lytcl"]
+gradient = SubResource("Gradient_i3f8r")
+fill = 1
+fill_from = Vector2(0.46789, 0.518349)
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="Player" parent="." node_paths=PackedStringArray("_gun") instance=ExtResource("1_ax0se")]
+scale = Vector2(1.00391, 1.04514)
+_gun = NodePath("Gun")
+
+[node name="Gun" parent="Player" instance=ExtResource("2_lo0um")]
+position = Vector2(4, 4)
+
+[node name="FlashLight" parent="Player" instance=ExtResource("5_y4ngv")]
+position = Vector2(6.97274, 3.82724)
+scale = Vector2(0.996105, 0.95681)
+
+[node name="WorldBoundary" type="Node" parent="."]
+
+[node name="Floor" type="StaticBody2D" parent="WorldBoundary"]
+position = Vector2(0, 38)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary/Floor"]
+position = Vector2(0, 42)
+shape = SubResource("WorldBoundaryShape2D_cduvv")
+
+[node name="RightWall" type="StaticBody2D" parent="WorldBoundary"]
+rotation = 3.13794
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary/RightWall"]
+position = Vector2(-144, 0)
+shape = SubResource("WorldBoundaryShape2D_qhcju")
+
+[node name="LefWall" type="StaticBody2D" parent="WorldBoundary"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundary/LefWall"]
+position = Vector2(-144, 0)
+shape = SubResource("WorldBoundaryShape2D_qhcju")
+
+[node name="Station" parent="." instance=ExtResource("3_cwfit")]
+position = Vector2(58, 63)
+
+[node name="VentMonster" parent="." instance=ExtResource("4_65h8a")]
+position = Vector2(75, -8)
+
+[node name="BackGround" type="Node" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="BackGround"]
+z_index = -100
+position = Vector2(1, 0)
+scale = Vector2(1.73387, 1)
+texture = ExtResource("6_0txx3")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(7, 4)
+scale = Vector2(1, 1)
+blend_mode = 1
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-72, 7.49999)
+scale = Vector2(6.96875, 2.85938)
+texture = SubResource("GradientTexture2D_lytcl")

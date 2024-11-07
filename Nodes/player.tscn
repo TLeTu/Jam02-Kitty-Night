@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=3 uid="uid://ct0pm8mailpw5"]
 
-[ext_resource type="Script" path="res://_Scripts/Unit/PlayerController.gd" id="1_sqme0"]
+[ext_resource type="Script" path="res://_Scripts/Unit/Player.gd" id="1_sqme0"]
 [ext_resource type="Texture2D" uid="uid://n8cohmex2sxn" path="res://Sprites/Meow-Knight_Idle.png" id="1_v7x5x"]
 [ext_resource type="Texture2D" uid="uid://dr70jr3pb2yum" path="res://Sprites/Meow-Knight_Run.png" id="2_5p0qi"]
 [ext_resource type="Texture2D" uid="uid://b1s61uotopcr5" path="res://Sprites/Meow-Knight_Jump.png" id="2_cqof8"]

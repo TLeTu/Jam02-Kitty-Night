@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3 uid="uid://ld67y88nc70g"]
+
+[ext_resource type="Script" path="res://_Scripts/Unit/VentMonster.gd" id="1_1mjqb"]
+[ext_resource type="Texture2D" uid="uid://dhc5k03knfi77" path="res://icon.svg" id="1_r8877"]
+[ext_resource type="Script" path="res://_Scripts/StateMachine/StateMachine.gd" id="3_sdqhq"]
+[ext_resource type="Script" path="res://_Scripts/StateMachine/Monster/Knocking.gd" id="4_oybpk"]
+[ext_resource type="Script" path="res://_Scripts/StateMachine/Monster/Hiding.gd" id="4_qfr8c"]
+[ext_resource type="Script" path="res://_Scripts/StateMachine/Monster/Entering.gd" id="5_ykewy"]
+[ext_resource type="Script" path="res://_Scripts/StateMachine/Monster/Entered.gd" id="6_pja5b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cpj0y"]
+size = Vector2(24, 24)
+
+[node name="VentMonster" type="Area2D"]
+collision_layer = 8
+collision_mask = 16
+script = ExtResource("1_1mjqb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_r8877")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_cpj0y")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("_initialState")]
+script = ExtResource("3_sdqhq")
+_initialState = NodePath("Hiding")
+
+[node name="Hiding" type="Node" parent="StateMachine"]
+script = ExtResource("4_qfr8c")
+
+[node name="Knocking" type="Node" parent="StateMachine"]
+script = ExtResource("4_oybpk")
+
+[node name="Entering" type="Node" parent="StateMachine"]
+script = ExtResource("5_ykewy")
+
+[node name="Entered" type="Node" parent="StateMachine"]
+script = ExtResource("6_pja5b")
+
+[node name="Timer" type="Node" parent="."]
+
+[node name="HidingTimer" type="Timer" parent="Timer"]
+one_shot = true
+
+[node name="KnockingTimer" type="Timer" parent="Timer"]
+one_shot = true
+
+[node name="EnteringTimer" type="Timer" parent="Timer"]
+one_shot = true
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="timeout" from="Timer/HidingTimer" to="." method="_on_hiding_timer_timeout"]
+[connection signal="timeout" from="Timer/KnockingTimer" to="." method="_on_knocking_timer_timeout"]
+[connection signal="timeout" from="Timer/EnteringTimer" to="." method="_on_entering_timer_timeout"]
