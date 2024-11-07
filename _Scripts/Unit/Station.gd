@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body) -> void:
 	_playerIn = true
-	if body._isHoldingGun:
+	if body._isHoldingObject and body._object.get_name() == "Gun":
 		_gun = body.get_node("Gun")
 
 

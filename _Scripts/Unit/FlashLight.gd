@@ -1,21 +1,9 @@
-extends Area2D
-class_name Gun
-const _bullet = preload("res://Nodes/bullet.tscn")
+extends Gun
 
-@onready var _marker: Marker2D = $Marker2D
-@onready var _stateMachine: Node = $StateMachine
-@onready var _collision: CollisionShape2D = $CollisionShape2D
-@export var _bulletNum: int = 1
-@export var _bulletSpeed: float = 100
-@export var _player: CharacterBody2D
-@export var _objectHolder: Node
-
-var _currentState: State
-var _playerIn = false
-var _gravity = 98
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	pass # Replace with function body.
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -34,19 +22,6 @@ func _process(delta: float) -> void:
 			scale.y = 0.5
 		if Input.is_action_just_pressed("Drop"):
 			_drop()
-		if Input.is_action_just_pressed("Shoot") and _bulletNum > 0:
-			var bullet_instance = _bullet.instantiate()
-			var launch_vector = _calculate_launch_velocity()
-			get_tree().root.add_child(bullet_instance)
-			bullet_instance.global_position = _marker.global_position
-			bullet_instance.rotation = rotation
-			bullet_instance.launch(launch_vector)
-			_bulletNum -= 1
-
-func _calculate_launch_velocity() -> Vector2:
-	# Calculate direction vector from marker to mouse
-	var direction = (get_global_mouse_position() - _marker.global_position).normalized()
-	return direction * _bulletSpeed
 
 func _pick_up():
 	_currentState._transitioned.emit(_currentState, "PickedUp")
@@ -66,14 +41,8 @@ func _drop():
 	_player._isHoldingObject = false
 	_player._object = null
 
-func _add_bullet(num: int):
-	_bulletNum += num
-
-func _get_bullet():
-	return _bulletNum
-
-func _on_body_entered(body: Node2D) -> void:
+func _on_flashlight_body_entered(body: Node2D) -> void:
 	_playerIn = true
 
-func _on_body_exited(body: Node2D) -> void:
+func _on_flashlight_body_exited(body: Node2D) -> void:
 	_playerIn = false

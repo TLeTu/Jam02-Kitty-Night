@@ -1,9 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://fe4nciqkjdv1"]
+[gd_scene load_steps=8 format=3 uid="uid://fe4nciqkjdv1"]
 
+[ext_resource type="Script" path="res://_Scripts/Unit/FlashLight.gd" id="1_4wix2"]
 [ext_resource type="Texture2D" uid="uid://cej8bdhuqxk7i" path="res://Sprites/Flashlight.png" id="1_7nj3y"]
 [ext_resource type="Texture2D" uid="uid://c1gp6dm13dold" path="res://Sprites/Light.png" id="2_qu6ls"]
+[ext_resource type="Script" path="res://_Scripts/StateMachine/StateMachine.gd" id="4_f74gh"]
+[ext_resource type="Script" path="res://_Scripts/StateMachine/Object/Grounded.gd" id="5_7awfv"]
+[ext_resource type="Script" path="res://_Scripts/StateMachine/Object/PickedUp.gd" id="6_eixjt"]
 
-[node name="FlashLight" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwqd0"]
+size = Vector2(12, 8)
+
+[node name="FlashLight" type="Area2D"]
+script = ExtResource("1_4wix2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
@@ -13,3 +21,19 @@ texture = ExtResource("1_7nj3y")
 position = Vector2(52.25, 0)
 scale = Vector2(1.55469, 1)
 texture = ExtResource("2_qu6ls")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mwqd0")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("_initialState")]
+script = ExtResource("4_f74gh")
+_initialState = NodePath("Grounded")
+
+[node name="Grounded" type="Node" parent="StateMachine"]
+script = ExtResource("5_7awfv")
+
+[node name="PickedUp" type="Node" parent="StateMachine"]
+script = ExtResource("6_eixjt")
+
+[connection signal="body_entered" from="." to="." method="_on_flashlight_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_flashlight_body_exited"]
