@@ -42,4 +42,4 @@ func _on_knocking_timer_timeout() -> void:
 	currentState._transitioned.emit(currentState, "Entering")
 
 func _on_entering_timer_timeout() -> void:
-	print("You dead")
+	currentState._transitioned.emit(currentState, "Entered")

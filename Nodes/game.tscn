@@ -24,7 +24,7 @@ fill_from = Vector2(0.46789, 0.518349)
 [node name="Game" type="Node2D"]
 
 [node name="Gun" parent="." node_paths=PackedStringArray("_player", "_objectHolder") instance=ExtResource("2_lo0um")]
-position = Vector2(-21, 68)
+position = Vector2(-23, 75)
 scale = Vector2(0.501955, 0.52257)
 _player = NodePath("../Player")
 _objectHolder = NodePath("../Objects")

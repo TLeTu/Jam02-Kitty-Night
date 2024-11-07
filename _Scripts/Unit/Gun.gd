@@ -1,4 +1,4 @@
-extends Node2D
+extends Area2D
 
 const _bullet = preload("res://Nodes/bullet.tscn")
 
@@ -12,6 +12,7 @@ const _bullet = preload("res://Nodes/bullet.tscn")
 
 var _currentState: State
 var _playerIn = false
+var _gravity = 98
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -19,8 +20,10 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	_currentState = _stateMachine._get_current_state()
-	if _currentState.get_name() == "Grounded" and _playerIn:
-		if Input.is_action_just_pressed("Pickup"):
+	if _currentState.get_name() == "Grounded":
+		if position.y < 75:
+			position += _gravity * delta * gravity_direction
+		if Input.is_action_just_pressed("Pickup") and _playerIn:
 			_pick_up()
 	if _currentState.get_name() == "PickedUp":
 		look_at(get_global_mouse_position())
