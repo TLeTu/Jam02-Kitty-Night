@@ -10,9 +10,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mwqd0"]
 size = Vector2(12, 8)
 
-[node name="FlashLight" type="Area2D" node_paths=PackedStringArray("_light")]
+[node name="FlashLight" type="Area2D"]
 script = ExtResource("1_4wix2")
-_light = NodePath("PointLight2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.75, 0.75)

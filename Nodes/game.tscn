@@ -72,7 +72,7 @@ shape = SubResource("WorldBoundaryShape2D_qhcju")
 position = Vector2(58, 63)
 
 [node name="VentMonster" parent="." instance=ExtResource("4_65h8a")]
-position = Vector2(96, -64)
+position = Vector2(96, -57)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 position = Vector2(7, 4)

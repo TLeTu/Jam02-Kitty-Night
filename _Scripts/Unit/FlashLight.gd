@@ -1,6 +1,14 @@
-extends Gun
+extends Area2D
 
-@export var _light: Light2D
+@onready var _light: Light2D = $PointLight2D
+@onready var _stateMachine: Node = $StateMachine
+@onready var _collision: CollisionShape2D = $CollisionShape2D
+@export var _player: CharacterBody2D
+@export var _objectHolder: Node
+
+var _currentState: State
+var _playerIn = false
+var _gravity = 98
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
