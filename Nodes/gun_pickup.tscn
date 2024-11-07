@@ -1,14 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgs8fomjtofol"]
+[gd_scene load_steps=4 format=3 uid="uid://bt1wcfhg5fd5o"]
 
-[ext_resource type="Script" path="res://_Scripts/Unit/GunPickup.gd" id="1_oyhl4"]
 [ext_resource type="Texture2D" uid="uid://dw6u4ptm6pal1" path="res://Sprites/28.png" id="1_w0d0g"]
+
+[sub_resource type="GDScript" id="GDScript_u44sl"]
+script/source = "extends Area2D
+
+var _playerIn = false
+var _player
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(\"Pickup\") and _playerIn and _player != null:
+		if _player._is_holding_item():
+			print(\"yes\")
+		else:
+			print(\"no\")
+
+func _on_body_entered(body: Node2D) -> void:
+	_playerIn = true
+	_player = body
+
+func _on_body_exited(body: Node2D) -> void:
+	_playerIn = false
+	_player = null
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ejyf3"]
 size = Vector2(12, 6.5)
 
 [node name="gun_pickup" type="Area2D"]
 collision_layer = 2
-script = ExtResource("1_oyhl4")
+script = SubResource("GDScript_u44sl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

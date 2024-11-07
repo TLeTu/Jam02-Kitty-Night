@@ -4,12 +4,9 @@ extends CharacterBody2D
 @export var _runSpeed : float = 130
 @export var _maxJumpVelocity : float  = -300
 @export var _gun: Node2D
-var _isHoldingItem
+var _isHoldingGun = false
 
 func _ready() -> void:
-	_isHoldingItem = false
-	if not _gun:
-		get_node("Gun")
 	if not _animation:
 		get_node("AnimatedSprite2D")
 
@@ -35,10 +32,12 @@ func Move(delta: float):
 func FlipModel(direction):
 	if direction > 0:
 		_animation.flip_h = false
-		_gun.position.x = 4
+		if _isHoldingGun:
+			_gun.position.x = 4
 	elif direction < 0:
 		_animation.flip_h = true
-		_gun.position.x = -4
+		if _isHoldingGun:
+			_gun.position.x = -4
 
 func Jump():
 	if Input.is_action_pressed("Jump") and is_on_floor():
@@ -50,5 +49,5 @@ func HandleGravity(delta: float):
 		_animation.play("Falling")
 		velocity += get_gravity() * delta
 
-func _is_holding_item():
-	return _isHoldingItem
+func _is_holding_gun():
+	return _isHoldingGun

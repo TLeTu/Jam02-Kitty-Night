@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bvdip1dq8fq1c"]
+[gd_scene load_steps=11 format=3 uid="uid://bvdip1dq8fq1c"]
 
 [ext_resource type="PackedScene" uid="uid://ct0pm8mailpw5" path="res://Nodes/player.tscn" id="1_ax0se"]
 [ext_resource type="PackedScene" uid="uid://cikrdb857r4yb" path="res://Nodes/gun.tscn" id="2_lo0um"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://ld67y88nc70g" path="res://Nodes/vent_monster.tscn" id="4_65h8a"]
 [ext_resource type="PackedScene" uid="uid://fe4nciqkjdv1" path="res://Nodes/flash_light.tscn" id="5_y4ngv"]
 [ext_resource type="Texture2D" uid="uid://vgn16yrbwnii" path="res://Sprites/black.png" id="6_0txx3"]
-[ext_resource type="PackedScene" uid="uid://cgs8fomjtofol" path="res://Nodes/gun_pickup.tscn" id="7_jlykt"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cduvv"]
 
@@ -24,19 +23,18 @@ fill_from = Vector2(0.46789, 0.518349)
 
 [node name="Game" type="Node2D"]
 
+[node name="Gun" parent="." node_paths=PackedStringArray("_player", "_objectHolder") instance=ExtResource("2_lo0um")]
+position = Vector2(-21, 68)
+scale = Vector2(0.501955, 0.52257)
+_player = NodePath("../Player")
+_objectHolder = NodePath("../Objects")
+
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 
 [node name="Player" parent="." node_paths=PackedStringArray("_gun") instance=ExtResource("1_ax0se")]
 scale = Vector2(1.00391, 1.04514)
-_gun = NodePath("Gun")
-
-[node name="Gun" parent="Player" instance=ExtResource("2_lo0um")]
-position = Vector2(4, 4)
-
-[node name="FlashLight" parent="Player" instance=ExtResource("5_y4ngv")]
-position = Vector2(6.97274, 3.82724)
-scale = Vector2(0.996105, 0.95681)
+_gun = NodePath("../Gun")
 
 [node name="WorldBoundary" type="Node" parent="."]
 
@@ -79,7 +77,6 @@ texture = ExtResource("6_0txx3")
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 position = Vector2(7, 4)
-scale = Vector2(1, 1)
 blend_mode = 1
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -87,5 +84,8 @@ position = Vector2(-72, 7.49999)
 scale = Vector2(6.96875, 2.85938)
 texture = SubResource("GradientTexture2D_lytcl")
 
-[node name="gun_pickup" parent="." instance=ExtResource("7_jlykt")]
-position = Vector2(-40, 76)
+[node name="FlashLight" parent="." instance=ExtResource("5_y4ngv")]
+position = Vector2(7, 4)
+scale = Vector2(1, 1)
+
+[node name="Objects" type="Node" parent="."]
