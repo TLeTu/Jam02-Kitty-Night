@@ -27,6 +27,7 @@ func _process(delta: float) -> void:
 
 func _on_area_entered(area: Area2D) -> void:
 	print(currentState.get_name())
+	area.queue_free()
 	if currentState.get_name() == "Knocking":
 		print("Pushed monster back")
 		currentState._transitioned.emit(currentState, "Hiding")
