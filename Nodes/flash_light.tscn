@@ -10,8 +10,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mwqd0"]
 size = Vector2(12, 8)
 
-[node name="FlashLight" type="Area2D"]
+[node name="FlashLight" type="Area2D" node_paths=PackedStringArray("_light")]
 script = ExtResource("1_4wix2")
+_light = NodePath("PointLight2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
@@ -20,6 +21,7 @@ texture = ExtResource("1_7nj3y")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(52.25, 0)
 scale = Vector2(1.55469, 1)
+enabled = false
 texture = ExtResource("2_qu6ls")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

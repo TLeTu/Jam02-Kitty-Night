@@ -1,5 +1,6 @@
 extends Gun
 
+@export var _light: Light2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -29,6 +30,7 @@ func _pick_up():
 	get_parent().remove_child(self)
 	_player.add_child(self)
 	position = Vector2(4, 4)
+	_light.enabled = true
 	_player._isHoldingObject = true
 	_player._object = self
 
@@ -38,6 +40,7 @@ func _drop():
 	get_parent().remove_child(self)
 	_objectHolder.add_child(self)
 	position = _player.position
+	_light.enabled = false
 	_player._isHoldingObject = false
 	_player._object = null
 
