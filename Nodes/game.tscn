@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bvdip1dq8fq1c"]
+[gd_scene load_steps=12 format=3 uid="uid://bvdip1dq8fq1c"]
 
 [ext_resource type="PackedScene" uid="uid://ct0pm8mailpw5" path="res://Nodes/player.tscn" id="1_ax0se"]
 [ext_resource type="PackedScene" uid="uid://cikrdb857r4yb" path="res://Nodes/gun.tscn" id="2_lo0um"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ld67y88nc70g" path="res://Nodes/vent_monster.tscn" id="4_65h8a"]
 [ext_resource type="PackedScene" uid="uid://fe4nciqkjdv1" path="res://Nodes/flash_light.tscn" id="5_y4ngv"]
 [ext_resource type="Texture2D" uid="uid://vgn16yrbwnii" path="res://Sprites/black.png" id="6_0txx3"]
+[ext_resource type="PackedScene" uid="uid://cgs8fomjtofol" path="res://Nodes/gun_pickup.tscn" id="7_jlykt"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cduvv"]
 
@@ -85,3 +86,6 @@ blend_mode = 1
 position = Vector2(-72, 7.49999)
 scale = Vector2(6.96875, 2.85938)
 texture = SubResource("GradientTexture2D_lytcl")
+
+[node name="gun_pickup" parent="." instance=ExtResource("7_jlykt")]
+position = Vector2(-40, 76)

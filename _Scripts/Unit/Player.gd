@@ -4,8 +4,10 @@ extends CharacterBody2D
 @export var _runSpeed : float = 130
 @export var _maxJumpVelocity : float  = -300
 @export var _gun: Node2D
+var _isHoldingItem
 
 func _ready() -> void:
+	_isHoldingItem = false
 	if not _gun:
 		get_node("Gun")
 	if not _animation:
@@ -47,3 +49,6 @@ func HandleGravity(delta: float):
 	if not is_on_floor():
 		_animation.play("Falling")
 		velocity += get_gravity() * delta
+
+func _is_holding_item():
+	return _isHoldingItem

@@ -29,9 +29,11 @@ func _on_area_entered(area: Area2D) -> void:
 	if currentState.get_name() == "Knocking":
 		print("Pushed monster back")
 		currentState._transitioned.emit(currentState, "Hiding")
+		_knockingTimer.stop()
 	if currentState.get_name() == "Entering":
 		print("Pushed monster back")
 		currentState._transitioned.emit(currentState, "Knocking")
+		_enteringTimer.stop()
 
 func _on_hiding_timer_timeout() -> void:
 	currentState._transitioned.emit(currentState, "Knocking")
