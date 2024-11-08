@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://fe4nciqkjdv1"]
 
 [ext_resource type="Script" path="res://_Scripts/Unit/FlashLight.gd" id="1_4wix2"]
-[ext_resource type="Texture2D" uid="uid://cej8bdhuqxk7i" path="res://Sprites/Flashlight.png" id="1_7nj3y"]
-[ext_resource type="Texture2D" uid="uid://c1gp6dm13dold" path="res://Sprites/Light.png" id="2_qu6ls"]
+[ext_resource type="Texture2D" uid="uid://yjxqosm1oju7" path="res://Sprites/Objects/Flashlight.png" id="2_g8j54"]
+[ext_resource type="Texture2D" uid="uid://cgjdkdekqqu7" path="res://Sprites/Objects/Light.png" id="3_wnsx5"]
 [ext_resource type="Script" path="res://_Scripts/StateMachine/StateMachine.gd" id="4_f74gh"]
 [ext_resource type="Script" path="res://_Scripts/StateMachine/Object/Grounded.gd" id="5_7awfv"]
 [ext_resource type="Script" path="res://_Scripts/StateMachine/Object/PickedUp.gd" id="6_eixjt"]
@@ -15,13 +15,13 @@ script = ExtResource("1_4wix2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("1_7nj3y")
+texture = ExtResource("2_g8j54")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(56, 0)
 scale = Vector2(1.55469, 1.625)
 enabled = false
-texture = ExtResource("2_qu6ls")
+texture = ExtResource("3_wnsx5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mwqd0")

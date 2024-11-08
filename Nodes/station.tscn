@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dxbyhq8rwhhq5"]
 
-[ext_resource type="Texture2D" uid="uid://dhc5k03knfi77" path="res://icon.svg" id="1_tatpm"]
 [ext_resource type="Script" path="res://_Scripts/Unit/Station.gd" id="2_isscn"]
+[ext_resource type="Texture2D" uid="uid://55458hckoyg7" path="res://Sprites/Objects/Sataion.png" id="2_x14k0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ld1bd"]
 size = Vector2(26, 26)
@@ -11,8 +11,8 @@ collision_layer = 2
 script = ExtResource("2_isscn")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("1_tatpm")
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_x14k0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ld1bd")

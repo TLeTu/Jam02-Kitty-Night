@@ -1,42 +1,56 @@
-[gd_scene load_steps=21 format=3 uid="uid://ld67y88nc70g"]
+[gd_scene load_steps=23 format=3 uid="uid://ld67y88nc70g"]
 
 [ext_resource type="Script" path="res://_Scripts/Unit/VentMonster.gd" id="1_1mjqb"]
-[ext_resource type="Texture2D" uid="uid://co3uimvwun36g" path="res://Sprites/Vent-Sheet.png" id="2_3wrve"]
+[ext_resource type="Texture2D" uid="uid://d1hwre2npw1q6" path="res://Sprites/Monster/Vent-Sheet.png" id="2_08vme"]
 [ext_resource type="Script" path="res://_Scripts/StateMachine/StateMachine.gd" id="3_sdqhq"]
 [ext_resource type="Script" path="res://_Scripts/StateMachine/Monster/Knocking.gd" id="4_oybpk"]
 [ext_resource type="Script" path="res://_Scripts/StateMachine/Monster/Hiding.gd" id="4_qfr8c"]
 [ext_resource type="Script" path="res://_Scripts/StateMachine/Monster/Entering.gd" id="5_ykewy"]
 [ext_resource type="Script" path="res://_Scripts/StateMachine/Monster/Entered.gd" id="6_pja5b"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t61ej"]
-atlas = ExtResource("2_3wrve")
+[sub_resource type="AtlasTexture" id="AtlasTexture_liybt"]
+atlas = ExtResource("2_08vme")
 region = Rect2(320, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_144gm"]
-atlas = ExtResource("2_3wrve")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekamh"]
+atlas = ExtResource("2_08vme")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgxgf"]
+atlas = ExtResource("2_08vme")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tdu8"]
+atlas = ExtResource("2_08vme")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1eraf"]
-atlas = ExtResource("2_3wrve")
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1mcy"]
+atlas = ExtResource("2_08vme")
 region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lr4xd"]
-atlas = ExtResource("2_3wrve")
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5tox"]
+atlas = ExtResource("2_08vme")
 region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_x4sfe"]
-atlas = ExtResource("2_3wrve")
+[sub_resource type="AtlasTexture" id="AtlasTexture_htpcv"]
+atlas = ExtResource("2_08vme")
 region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0jxm5"]
-atlas = ExtResource("2_3wrve")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrjcy"]
+atlas = ExtResource("2_08vme")
 region = Rect2(256, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1vdpu"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t61ej")
+"texture": SubResource("AtlasTexture_liybt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekamh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgxgf")
 }],
 "loop": true,
 "name": &"Entering",
@@ -44,7 +58,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_144gm")
+"texture": SubResource("AtlasTexture_3tdu8")
 }],
 "loop": true,
 "name": &"Hiding",
@@ -52,16 +66,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1eraf")
+"texture": SubResource("AtlasTexture_l1mcy")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lr4xd")
+"texture": SubResource("AtlasTexture_h5tox")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_x4sfe")
+"texture": SubResource("AtlasTexture_htpcv")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0jxm5")
+"texture": SubResource("AtlasTexture_jrjcy")
 }],
 "loop": true,
 "name": &"Knocking",
@@ -69,7 +83,59 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cpj0y"]
-size = Vector2(44, 3.5)
+size = Vector2(28, 3.5)
+
+[sub_resource type="Animation" id="Animation_ip1w8"]
+resource_name = "Entering"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Entering"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:shape:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(31, 32.25)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:shape")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_cpj0y")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, -0.125)]
+}
 
 [sub_resource type="Animation" id="Animation_6w1u8"]
 resource_name = "Hiding"
@@ -89,14 +155,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/path = NodePath("CollisionShape2D:shape")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-1, -22)]
+"update": 1,
+"values": [SubResource("RectangleShape2D_cpj0y")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -108,46 +174,19 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(44, 3.5)]
+"values": [Vector2(28, 3.5)]
 }
-
-[sub_resource type="Animation" id="Animation_e6f2d"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"Hiding"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:shape:size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(44, 3.5)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape2D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -22)]
+"values": [Vector2(0, -15)]
 }
 
 [sub_resource type="Animation" id="Animation_0b3a7"]
@@ -175,24 +214,35 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(43.5, 6)]
+"values": [Vector2(29, 6)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/path = NodePath("CollisionShape2D:shape")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("RectangleShape2D_cpj0y")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-0.75, -21)]
+"values": [Vector2(0.5, -14)]
 }
 
-[sub_resource type="Animation" id="Animation_ip1w8"]
-resource_name = "Entering"
-loop_mode = 1
+[sub_resource type="Animation" id="Animation_e6f2d"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -203,31 +253,43 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"Entering"]
+"values": [&"Hiding"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:shape:size")
+tracks/1/path = NodePath("CollisionShape2D:shape")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(37.5, 44.5)]
+"update": 1,
+"values": [SubResource("RectangleShape2D_cpj0y")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CollisionShape2D:position")
+tracks/2/path = NodePath("CollisionShape2D:shape:size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-6.75, -2.25)]
+"values": [Vector2(28, 3.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CollisionShape2D:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -15)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eju1s"]
@@ -244,13 +306,13 @@ collision_mask = 16
 script = ExtResource("1_1mjqb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_1vdpu")
 animation = &"Hiding"
 autoplay = "Hiding"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -22)
+position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_cpj0y")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("_initialState")]

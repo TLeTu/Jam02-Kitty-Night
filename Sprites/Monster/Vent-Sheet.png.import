@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cjkwrv5ghi64o"
-path="res://.godot/imported/Window-Sheet.png-84895f10bcf64adb49cd53e8a3e0be49.ctex"
+uid="uid://d1hwre2npw1q6"
+path="res://.godot/imported/Vent-Sheet.png-393c9c0ccf4b0fadbfc55974111a4f34.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Window-Sheet.png"
-dest_files=["res://.godot/imported/Window-Sheet.png-84895f10bcf64adb49cd53e8a3e0be49.ctex"]
+source_file="res://Sprites/Monster/Vent-Sheet.png"
+dest_files=["res://.godot/imported/Vent-Sheet.png-393c9c0ccf4b0fadbfc55974111a4f34.ctex"]
 
 [params]
 

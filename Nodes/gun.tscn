@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cikrdb857r4yb"]
 
-[ext_resource type="Texture2D" uid="uid://dw6u4ptm6pal1" path="res://Sprites/28.png" id="1_sx6m6"]
 [ext_resource type="Script" path="res://_Scripts/Unit/Gun.gd" id="1_vr5t7"]
+[ext_resource type="Texture2D" uid="uid://c1412o6xs3djl" path="res://Sprites/Objects/Gun.png" id="2_8l4lv"]
 [ext_resource type="Script" path="res://_Scripts/StateMachine/StateMachine.gd" id="3_ag54c"]
 [ext_resource type="Script" path="res://_Scripts/StateMachine/Object/Grounded.gd" id="4_u8hbl"]
 [ext_resource type="Script" path="res://_Scripts/StateMachine/Object/PickedUp.gd" id="5_pq23v"]
@@ -16,7 +16,7 @@ _bulletSpeed = 200.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(6, 0)
-texture = ExtResource("1_sx6m6")
+texture = ExtResource("2_8l4lv")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(22, -2)

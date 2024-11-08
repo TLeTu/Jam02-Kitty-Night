@@ -1,0 +1,107 @@
+[gd_scene load_steps=17 format=3 uid="uid://c51e7hgfed8y4"]
+
+[ext_resource type="Script" path="res://_Scripts/Unit/WindowMonster.gd" id="1_gtjhc"]
+[ext_resource type="Script" path="res://_Scripts/StateMachine/StateMachine.gd" id="2_3w7k0"]
+[ext_resource type="Texture2D" uid="uid://yxkgjpk567mo" path="res://Sprites/Monster/Window-Sheet.png" id="2_072ju"]
+[ext_resource type="Script" path="res://_Scripts/StateMachine/Monster/Hiding.gd" id="3_w6kbh"]
+[ext_resource type="Script" path="res://_Scripts/StateMachine/Monster/Knocking.gd" id="4_v7g46"]
+[ext_resource type="Script" path="res://_Scripts/StateMachine/Monster/Entering.gd" id="5_mcaqn"]
+[ext_resource type="Script" path="res://_Scripts/StateMachine/Monster/Entered.gd" id="6_k6fpe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v8hdb"]
+atlas = ExtResource("2_072ju")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofwv5"]
+atlas = ExtResource("2_072ju")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o021r"]
+atlas = ExtResource("2_072ju")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57yho"]
+atlas = ExtResource("2_072ju")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cecih"]
+atlas = ExtResource("2_072ju")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_27k8s"]
+atlas = ExtResource("2_072ju")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i71lc"]
+atlas = ExtResource("2_072ju")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sitmo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v8hdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ofwv5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o021r")
+}],
+"loop": true,
+"name": &"HidingClose",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57yho")
+}],
+"loop": true,
+"name": &"HidingIdle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cecih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_27k8s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i71lc")
+}],
+"loop": true,
+"name": &"HidingOpen",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3id1s"]
+size = Vector2(66, 58)
+
+[node name="WindowMonster" type="Area2D"]
+script = ExtResource("1_gtjhc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sitmo")
+animation = &"HidingIdle"
+autoplay = "HidingIdle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_3id1s")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("_initialState")]
+script = ExtResource("2_3w7k0")
+_initialState = NodePath("Hiding")
+
+[node name="Hiding" type="Node" parent="StateMachine"]
+script = ExtResource("3_w6kbh")
+
+[node name="Knocking" type="Node" parent="StateMachine"]
+script = ExtResource("4_v7g46")
+
+[node name="Entering" type="Node" parent="StateMachine"]
+script = ExtResource("5_mcaqn")
+
+[node name="Entered" type="Node" parent="StateMachine"]
+script = ExtResource("6_k6fpe")
