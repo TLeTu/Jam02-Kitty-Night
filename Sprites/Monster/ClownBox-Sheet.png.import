@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvhwefgmhvm5p"
-path="res://.godot/imported/Bullet.png-9469bbcb940ab84e189d7fc8159afc00.ctex"
+uid="uid://dnqvrobpfttql"
+path="res://.godot/imported/ClownBox-Sheet.png-36f2566596a87b2371beb747a80af515.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Objects/Bullet.png"
-dest_files=["res://.godot/imported/Bullet.png-9469bbcb940ab84e189d7fc8159afc00.ctex"]
+source_file="res://Sprites/Monster/ClownBox-Sheet.png"
+dest_files=["res://.godot/imported/ClownBox-Sheet.png-36f2566596a87b2371beb747a80af515.ctex"]
 
 [params]
 

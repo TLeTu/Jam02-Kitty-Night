@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvf7xx5jyaww0"]
+
+[ext_resource type="PackedScene" uid="uid://ct0pm8mailpw5" path="res://Scenes/_player.tscn" id="1_ud6aa"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h4d88"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ffup7"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dpllc"]
+
+[node name="Test" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+
+[node name="Player" parent="." instance=ExtResource("1_ud6aa")]
+position = Vector2(1, 0)
+
+[node name="WorldBoundaries" type="Node" parent="."]
+
+[node name="Floor" type="StaticBody2D" parent="WorldBoundaries"]
+position = Vector2(0, 81)
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/Floor"]
+shape = SubResource("WorldBoundaryShape2D_h4d88")
+
+[node name="LeftWall" type="StaticBody2D" parent="WorldBoundaries"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/LeftWall"]
+position = Vector2(-145, 0)
+shape = SubResource("WorldBoundaryShape2D_ffup7")
+
+[node name="RightWall" type="StaticBody2D" parent="WorldBoundaries"]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WorldBoundaries/RightWall"]
+position = Vector2(144, 0)
+rotation = -1.57138
+shape = SubResource("WorldBoundaryShape2D_dpllc")

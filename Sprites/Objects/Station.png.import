@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvhwefgmhvm5p"
-path="res://.godot/imported/Bullet.png-9469bbcb940ab84e189d7fc8159afc00.ctex"
+uid="uid://bdu22xel3kloh"
+path="res://.godot/imported/Station.png-bd41c36d3b6b7da93223461bb96a2adf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Objects/Bullet.png"
-dest_files=["res://.godot/imported/Bullet.png-9469bbcb940ab84e189d7fc8159afc00.ctex"]
+source_file="res://Sprites/Objects/Station.png"
+dest_files=["res://.godot/imported/Station.png-bd41c36d3b6b7da93223461bb96a2adf.ctex"]
 
 [params]
 

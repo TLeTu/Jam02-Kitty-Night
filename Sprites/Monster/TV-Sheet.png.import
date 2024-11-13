@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvhwefgmhvm5p"
-path="res://.godot/imported/Bullet.png-9469bbcb940ab84e189d7fc8159afc00.ctex"
+uid="uid://c0oiqjntk5kbr"
+path="res://.godot/imported/TV-Sheet.png-88985ce2011a1c85d1026ff17384e0f1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Objects/Bullet.png"
-dest_files=["res://.godot/imported/Bullet.png-9469bbcb940ab84e189d7fc8159afc00.ctex"]
+source_file="res://Sprites/Monster/TV-Sheet.png"
+dest_files=["res://.godot/imported/TV-Sheet.png-88985ce2011a1c85d1026ff17384e0f1.ctex"]
 
 [params]
 

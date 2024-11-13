@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvhwefgmhvm5p"
-path="res://.godot/imported/Bullet.png-9469bbcb940ab84e189d7fc8159afc00.ctex"
+uid="uid://dxxq0li2lh1is"
+path="res://.godot/imported/Closet-Sheet.png-7679ef4716b3236d5d05be8c9cb4420f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Objects/Bullet.png"
-dest_files=["res://.godot/imported/Bullet.png-9469bbcb940ab84e189d7fc8159afc00.ctex"]
+source_file="res://Sprites/Monster/Closet-Sheet.png"
+dest_files=["res://.godot/imported/Closet-Sheet.png-7679ef4716b3236d5d05be8c9cb4420f.ctex"]
 
 [params]
 
