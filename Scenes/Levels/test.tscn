@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bvf7xx5jyaww0"]
+[gd_scene load_steps=7 format=3 uid="uid://bvf7xx5jyaww0"]
 
 [ext_resource type="PackedScene" uid="uid://ct0pm8mailpw5" path="res://Scenes/_player.tscn" id="1_ud6aa"]
+[ext_resource type="PackedScene" uid="uid://b0w24oia5iwpr" path="res://Scenes/Items/flash_light.tscn" id="2_3op1y"]
+[ext_resource type="PackedScene" uid="uid://bp2me6rhfj6lo" path="res://Scenes/Items/gun.tscn" id="3_llamw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h4d88"]
 
@@ -40,3 +42,11 @@ collision_layer = 4
 position = Vector2(144, 0)
 rotation = -1.57138
 shape = SubResource("WorldBoundaryShape2D_dpllc")
+
+[node name="FlashLight" parent="." instance=ExtResource("2_3op1y")]
+position = Vector2(-32, 48)
+
+[node name="ObjectHolder" type="Node" parent="."]
+
+[node name="Gun" parent="." instance=ExtResource("3_llamw")]
+position = Vector2(-61, 78)

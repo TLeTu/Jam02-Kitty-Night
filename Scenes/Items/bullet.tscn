@@ -1,8 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://dv0kdbd6oy6br"]
+[gd_scene load_steps=4 format=3 uid="uid://dv0kdbd6oy6br"]
+
+[ext_resource type="Script" path="res://_Scripts/Items/bullet.gd" id="1_q0slf"]
+[ext_resource type="Texture2D" uid="uid://cagqtdf3xhire" path="res://Sprites/Items/Bullet.png" id="2_4f2lo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hx2m"]
+size = Vector2(8, 2)
 
 [node name="Bullet" type="Area2D"]
+script = ExtResource("1_q0slf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_2hx2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_4f2lo")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
