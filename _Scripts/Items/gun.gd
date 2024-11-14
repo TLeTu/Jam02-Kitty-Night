@@ -30,10 +30,8 @@ func calculate_launch_velocity() -> Vector2:
 	return direction * bullet_speed
 
 func add_bullet(num: int) -> void:
-	bullet_num += num
-
-func bullet_current_num() -> int:
-	return _bullet_current_num
+	if _bullet_current_num < bullet_num:
+		_bullet_current_num += num
 
 func activate() -> void:
 	_collision.disabled = true

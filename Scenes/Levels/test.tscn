@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://bvf7xx5jyaww0"]
+[gd_scene load_steps=8 format=3 uid="uid://bvf7xx5jyaww0"]
 
 [ext_resource type="PackedScene" uid="uid://ct0pm8mailpw5" path="res://Scenes/_player.tscn" id="1_ud6aa"]
 [ext_resource type="PackedScene" uid="uid://b0w24oia5iwpr" path="res://Scenes/Items/flash_light.tscn" id="2_3op1y"]
 [ext_resource type="PackedScene" uid="uid://bp2me6rhfj6lo" path="res://Scenes/Items/gun.tscn" id="3_llamw"]
+[ext_resource type="PackedScene" uid="uid://dpj6ws0oyq7ba" path="res://Scenes/Items/magazine.tscn" id="4_lmrib"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_h4d88"]
 
@@ -49,4 +50,7 @@ position = Vector2(-32, 48)
 [node name="ObjectHolder" type="Node" parent="."]
 
 [node name="Gun" parent="." instance=ExtResource("3_llamw")]
-position = Vector2(-61, 78)
+position = Vector2(-54, 60)
+
+[node name="Magazine" parent="." instance=ExtResource("4_lmrib")]
+position = Vector2(-78, 69)

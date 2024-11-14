@@ -11,6 +11,7 @@ size = Vector2(16, 12)
 scale = Vector2(0.75, 0.75)
 collision_layer = 2
 script = ExtResource("1_ep53k")
+global_y = 75.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, 0)

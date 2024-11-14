@@ -3,7 +3,8 @@ extends Area2D
 
 var picked_up
 
-var _gravity = 98
+@export var global_y: float = 76
+@export var _gravity: float = 98
 
 func activate() -> void:
 	pass
@@ -12,5 +13,5 @@ func disable() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	if not picked_up and position.y < 76:
-		position.y += _gravity * delta
+	if not picked_up and global_position.y < global_y:
+		global_position.y += _gravity * delta

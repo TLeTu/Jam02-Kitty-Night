@@ -129,6 +129,7 @@ shape = SubResource("RectangleShape2D_14c61")
 disabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, 4)
 scale = Vector2(1, 5)
 target_position = Vector2(20, 0)
 collision_mask = 2

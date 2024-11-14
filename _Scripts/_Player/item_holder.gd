@@ -19,9 +19,14 @@ func _process(delta: float) -> void:
 	raycast.force_raycast_update()
 	if not is_holding_item and _item == null and raycast.is_colliding():
 		var collider = raycast.get_collider()
-		if Input.is_action_just_pressed("Pickup"):
-				if collider is FlashLight or collider is Gun:
-					set_hold_item(collider)
+		if collider is FlashLight or collider is Gun:
+			if Input.is_action_just_pressed("Pickup"):
+				set_hold_item(collider)
+	if is_holding_item and _item is Gun and raycast.is_colliding():
+		var collider = raycast.get_collider()
+		if collider is Magazine:
+			if Input.is_action_just_pressed("Reload"):
+				_item.add_bullet(1)
 
 func set_hold_item(item) -> void:
 	_item = item
@@ -35,7 +40,7 @@ func remove_hold_item() -> void:
 	_item.disable()
 	_item.get_parent().remove_child(_item)
 	object_holder.add_child(_item)
-	_item.position = player.position
+	_item.global_position = player.global_position
 	_item.rotation_degrees = 0
 	_item.scale.y = scale_y
 	_item = null

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dv0kdbd6oy6br"]
 
 [ext_resource type="Script" path="res://_Scripts/Items/bullet.gd" id="1_q0slf"]
-[ext_resource type="Texture2D" uid="uid://cagqtdf3xhire" path="res://Sprites/Items/Bullet.png" id="2_4f2lo"]
+[ext_resource type="Texture2D" uid="uid://fgi41gfoila1" path="res://Sprites/Items/Bullet.png" id="2_4f2lo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2hx2m"]
 size = Vector2(8, 2)
@@ -13,7 +13,7 @@ script = ExtResource("1_q0slf")
 shape = SubResource("RectangleShape2D_2hx2m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_4f2lo")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
